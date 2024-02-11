@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:resume_app/Models/resumeModel.dart';
+import 'package:resume_app/Pages/add_page.dart';
 import 'package:resume_app/Services/resumeService.dart';
 
 class ViewPage extends StatefulWidget {
@@ -26,7 +27,7 @@ class _ViewPageState extends State<ViewPage> {
           title: Text("View All Resume",style: TextStyle(color: Colors.white),),
           actions: [
             IconButton(onPressed: (){
-             // Navigator.push(context, MaterialPageRoute(builder: (context)=>));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>AddPage()));
             }, icon: Icon(Icons.add,color: Colors.white,size: 27,)),
             SizedBox(width: 25,)
           ],
