@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:resume_app/Pages/register_page.dart';
 import 'package:resume_app/Services/userService.dart';
 
 class LoginPage extends StatefulWidget {
@@ -104,7 +105,7 @@ class _LoginPageState extends State<LoginPage> {
                             )
                         ),
                         onPressed: (){
-                         // Navigator.push(context, MaterialPageRoute(builder: (context)=>));
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>RegisterPage()));
                         }, child:Text("Sign Up",style: TextStyle(fontWeight: FontWeight.bold),)),
                   ),
                 ],

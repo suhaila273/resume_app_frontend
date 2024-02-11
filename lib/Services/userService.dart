@@ -23,6 +23,32 @@ class UserApiService {
       throw Exception("failed to login");
     }
   }
+  Future<dynamic> sendData(String username,String password, String dob,
+      String email,String phone) async
+  {
+    var client = http.Client();
+    var apiUrl = Uri.parse("http://localhost:3001/api/register/adduser");
+
+    var response = await client.post(apiUrl,
+        headers: <String, String>{
+          "Content-Type": "application/json; charset=UTF-8"
+        },
+        body: jsonEncode(<String, String>{
+          "username": username,
+          "password": password,
+          "dob": dob,
+          "email": email,
+          "phone": phone,
+        })
+    );
+    if (response.statusCode == 200) {
+      return json.decode(response.body);
+    }
+    else {
+      throw Exception("failed to register");
+    }
+  }
+
 
 }
 
