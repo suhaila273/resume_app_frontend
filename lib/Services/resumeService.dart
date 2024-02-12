@@ -10,7 +10,7 @@ class ResumeApiService
 
   Future<List<Resume>> getResume() async{
     var client= http.Client();
-    var apiUrl=Uri.parse("http://localhost:3001/api/resume/viewresume");
+    var apiUrl=Uri.parse("http://192.168.0.104:3001/api/resume/viewresume");
 
     var response= await client.get(apiUrl);
     if(response.statusCode==200)
@@ -26,7 +26,7 @@ class ResumeApiService
   Future<dynamic> sendData(String userId,String profile,String education,String skills,String achievments,String certifications) async
   {
     var client =http.Client();
-    var apiUrl= Uri.parse("http://localhost:3001/api/resume/addresume");
+    var apiUrl= Uri.parse("http://192.168.0.104:3001/api/resume/addresume");
 
     var response =await client.post(apiUrl,
         headers: <String,String>{

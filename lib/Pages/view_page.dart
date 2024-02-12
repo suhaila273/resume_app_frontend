@@ -25,12 +25,12 @@ class _ViewPageState extends State<ViewPage> {
           leading: IconButton(onPressed: (){Navigator.pop(context);},
               icon: Icon(Icons.arrow_back_ios_new,color: Colors.white,)),
           title: Text("View All Resume",style: TextStyle(color: Colors.white),),
-          actions: [
+         /* actions: [
             IconButton(onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder: (context)=>AddPage()));
             }, icon: Icon(Icons.add,color: Colors.white,size: 27,)),
             SizedBox(width: 25,)
-          ],
+          ],*/
           backgroundColor: Color(0xFF1D637C),
         ),
         body: FutureBuilder(
@@ -51,31 +51,35 @@ class _ViewPageState extends State<ViewPage> {
                                   + snapshot.data![index].userId.phone+"\n"+snapshot.data![index].userId.email
                               ),
                             ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.start,
+                            Row(
                               children: [
-                                SizedBox(height: 10,),
-                                Text("PROFILE",style: TextStyle(fontSize: 18),),
-                                SizedBox(height: 10,),
-                                Text(snapshot.data![index].profile,style: TextStyle(fontSize: 16),),
-                                SizedBox(height: 10,),
-                                Text("EDUCATION",style: TextStyle(fontSize: 18),),
-                                SizedBox(height: 10,),
-                                Text(snapshot.data![index].education,style: TextStyle(fontSize: 16),),
-                                SizedBox(height: 10,),
-                                Text("SKILLS",style: TextStyle(fontSize: 18),),
-                                SizedBox(height: 10,),
-                                Text(snapshot.data![index].skills,style: TextStyle(fontSize: 16),),
-                                SizedBox(height: 10,),
-                                Text("ACHIEVEMENTS",style: TextStyle(fontSize: 18),),
-                                SizedBox(height: 10,),
-                                Text(snapshot.data![index].achievments,style: TextStyle(fontSize: 16),),
-                                SizedBox(height: 10,),
-                                Text("CERTIFICATION",style: TextStyle(fontSize: 18),),
-                                SizedBox(height: 10,),
-                                Text(snapshot.data![index].certifications,style: TextStyle(fontSize: 16),),
-                                SizedBox(height: 10,),
+                                SizedBox(width: 20,),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    SizedBox(height: 10,),
+                                    Text("PROFILE",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+                                    SizedBox(height: 10,),
+                                    Text(snapshot.data![index].profile,style: TextStyle(fontSize: 16),),
+                                    SizedBox(height: 10,),
+                                    Text("EDUCATION",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+                                    SizedBox(height: 10,),
+                                    Text(snapshot.data![index].education,style: TextStyle(fontSize: 16),),
+                                    SizedBox(height: 10,),
+                                    Text("SKILLS",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+                                    SizedBox(height: 10,),
+                                    Text(snapshot.data![index].skills,style: TextStyle(fontSize: 16),),
+                                    SizedBox(height: 10,),
+                                    Text("ACHIEVEMENTS",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+                                    SizedBox(height: 10,),
+                                    Text(snapshot.data![index].achievments,style: TextStyle(fontSize: 16),),
+                                    SizedBox(height: 10,),
+                                    Text("CERTIFICATION",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+                                    SizedBox(height: 10,),
+                                    Text(snapshot.data![index].certifications,style: TextStyle(fontSize: 16),),
+                                    SizedBox(height: 10,),
+                                  ],
+                                ),
                               ],
                             ),
                           ],

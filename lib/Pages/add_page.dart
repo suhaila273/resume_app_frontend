@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:resume_app/Services/resumeService.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AddPage extends StatefulWidget {
   const AddPage({super.key});
@@ -9,7 +10,6 @@ class AddPage extends StatefulWidget {
 }
 
 class _AddPageState extends State<AddPage> {
-  TextEditingController id1=new TextEditingController();
   TextEditingController profile1=new TextEditingController();
   TextEditingController education1=new TextEditingController();
   TextEditingController skills1=new TextEditingController();
@@ -19,9 +19,11 @@ class _AddPageState extends State<AddPage> {
   //String userid="";
 
   void SendValuesToApiResume() async {
+    SharedPreferences prefer=await SharedPreferences.getInstance();
+    String userId=prefer.getString("userId")?? "";
 
     final response = await ResumeApiService().sendData(
-      id1.text,
+      userId,
         profile1.text,
         education1.text,
         skills1.text,
@@ -30,6 +32,7 @@ class _AddPageState extends State<AddPage> {
 
     if(response["status"]=="success")
     {
+
       print("successfully added");
     }
     else
@@ -57,15 +60,6 @@ class _AddPageState extends State<AddPage> {
             child: Column(
               children: [
                 SizedBox(height: 20,),
-                TextField(
-                  controller: id1,
-                  decoration: InputDecoration(
-                      labelText: "User Id",
-                      hintText: "Enter user id",
-                      border: OutlineInputBorder()
-                  ),
-                ),
-                SizedBox(height: 10,),
                 TextField(
                   controller: profile1,
                   decoration: InputDecoration(

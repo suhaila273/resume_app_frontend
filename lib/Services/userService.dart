@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 class UserApiService {
   Future<dynamic> loginData(String username, String password) async {
     var client = http.Client();
-    var apiUrl = Uri.parse("http://localhost:3001/api/register/login");
+    var apiUrl = Uri.parse("http://192.168.0.104:3001/api/register/login");
 
     var response = await client.post(apiUrl,
         headers: <String, String>{
@@ -27,7 +27,7 @@ class UserApiService {
       String email,String phone) async
   {
     var client = http.Client();
-    var apiUrl = Uri.parse("http://localhost:3001/api/register/adduser");
+    var apiUrl = Uri.parse("http://192.168.0.104:3001/api/register/adduser");
 
     var response = await client.post(apiUrl,
         headers: <String, String>{
